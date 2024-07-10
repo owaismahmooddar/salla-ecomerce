@@ -34,6 +34,7 @@ const ProductDetails: React.FC<HomeProps> = ({ initialProduct }) => {
   }, [dispatch, initialProduct]);
 
   const handleAddToCart = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     dispatch(
       addItemToCart({
         id: product.id,
@@ -87,12 +88,12 @@ const ProductDetails: React.FC<HomeProps> = ({ initialProduct }) => {
           </ol>
         </nav>
 
-        <div className="mx-auto my-20 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-16 lg:px-8">
-          <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+        <div className="mx-auto my-20 max-w-2xl text-center md:text-start sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-16 lg:px-8">
+          <div className="aspect-h-4 aspect-w-3 mb-1 md:mb-0  overflow-hidden rounded-lg lg:block">
             <img
               alt={product.title}
               src={product.image}
-              className="h-full w-full object-cover object-center"
+              className="h-80 w-80 mx-auto md:mx-0 md:h-full md:w-full object-cover object-center"
             />
           </div>
           <div className="flex flex-col justify-center mx-5 md:m-0">
@@ -118,7 +119,7 @@ const ProductDetails: React.FC<HomeProps> = ({ initialProduct }) => {
                 </p>
 
                 <div className="mt-6">
-                  <div className="flex items-center">
+                  <div className="flex items-center justify-center md:justify-start">
                     <div className="flex items-center">
                       {[0, 1, 2, 3, 4].map((rating) => (
                         <StarIcon
